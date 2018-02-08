@@ -1,13 +1,14 @@
-# mlmi-project
-Check out the code from https://github.com/shayansiddiqui/models and do the following steps.
+# SVM
+Jupyter Notebook is pretty self-explainable
 
-## Training locally
+# Faster R-CNN
+Check out the code from https://github.com/shayansiddiqui/models and do the following steps.
 
 NOTE: Run every cmd from the object_detection folder.
 
 1. Follow installation instruction here  https://github.com/shayansiddiqui/models/blob/master/research/object_detection/g3doc/installation.md
 
-2. Download data file from https://drive.google.com/drive/folders/1HyJOa-xVnThsvIESfyz2tPwjDXxus4Nx and place the polyp_data folder in the object_detection folder.
+2. Download data files from https://drive.google.com/drive/folders/1HyJOa-xVnThsvIESfyz2tPwjDXxus4Nx and place the polyp_data folder in the object_detection folder.
 
 3. Download the pretrained (on COCO dataset) model from [faster_rcnn_resnet50_coco](http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet50_coco_2017_11_08.tar.gz) and place the extracted folder in the object_detection folder.
 
@@ -33,27 +34,9 @@ TF records are already generated for current data split. For generating differen
 
 NOTE : and if you encounter filenotfound or some similar issue just run the command:  export PYTHONPATH=$PYTHONPATH:\`pwd\`:\`pwd\`/slim
  from the models/research directory or add the same to your .bashrc
- 
- ## Training on Google Cloud
- 
- 1. You will need Google Cloud ML instance, Google Cloud Storage bucket created and a Google Compute Engine instance.
- 
- Mount storage bucket to Compute Engine instance. To do so, when creating Google Compute Engine instance give it access to all Google Cloud tools.
- Then run from this instance: gcsfuse <bucket name> <local directory to mount into>
- Use wget to download the model and special curl command to download polyp_data.zip from google drive directly:
- 
- `wget http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet50_coco_2017_11_08.tar.gz`
- 
- `curl -c /tmp/cookies "https://drive.google.com/uc?export=download&id=1FSiJwS_8yZ3NEL-VdN_Oy4G_uXuPqb8A" > /tmp/intermezzo.html`
- 
- `curl -L -b /tmp/cookies "https://drive.google.com$(cat /tmp/intermezzo.html | grep -Po 'uc-download-link" [^>]* href="\K[^"]*' | sed 's/\&amp;/\&/g')" > polyp_data.zip`
-
- 
- 2. Follow instructions here  https://github.com/shayansiddiqui/models/blob/master/research/object_detection/g3doc/installation.md
-
 
 ## Using trained model
 
- Already trained model is located in object_detection/polyp_graph/frozen directory. You can use it for testing in Jupyter Notebook
+ You can download already trained model [here](https://drive.google.com/open?id=1aCH76tppOpvQu8KoIm4r3njl3V5xTxaQ). You can use it for testing in Jupyter Notebook object_detection/object_detection_tutorial_polyp.ipynb
  
  
